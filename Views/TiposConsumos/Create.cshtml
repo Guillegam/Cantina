@@ -1,0 +1,48 @@
+﻿@model Cantina.Models.TiposConsumo
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>TiposConsumo</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="NombreConsumo" class="control-label"></label>
+                <input asp-for="NombreConsumo" class="form-control" />
+                <span asp-validation-for="NombreConsumo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HorarioInicio" class="control-label"></label>
+                <input asp-for="HorarioInicio" class="form-control" />
+                <span asp-validation-for="HorarioInicio" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HorarioFin" class="control-label"></label>
+                <input asp-for="HorarioFin" class="form-control" />
+                <span asp-validation-for="HorarioFin" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CreditosRequeridos" class="control-label"></label>
+                <input asp-for="CreditosRequeridos" class="form-control" />
+                <span asp-validation-for="CreditosRequeridos" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary mt-3 mb-2 ml-3 mr-3" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

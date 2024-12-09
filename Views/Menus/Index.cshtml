@@ -1,0 +1,55 @@
+﻿@model IEnumerable<Cantina.Models.Menu>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>MENUS</h1>
+
+<p>
+    <a asp-action="Create">Crear Nuevo Menu</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TipoConsumo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NombreComida)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Descripcion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Credito) <!-- Nueva columna -->
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TipoConsumo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NombreComida)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Descripcion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Credito) <!-- Nueva celda -->
+                </td>
+                <td>
+                    <a asp-action="Edit" class="btn btn-warning" asp-route-id="@item.IdMenu">Edit</a> |
+                    <a asp-action="Details" class="btn btn-primary" asp-route-id="@item.IdMenu">Details</a> |
+                    <a asp-action="Delete" class="btn btn-danger" asp-route-id="@item.IdMenu">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

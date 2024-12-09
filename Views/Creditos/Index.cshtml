@@ -1,0 +1,49 @@
+﻿@model IEnumerable<Cantina.Models.Credito>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>CREDITOS</h1>
+
+<p>
+    <a asp-action="Create">CARGAR CREDITOS</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CreditosAsignados)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreditosConsumidos)
+            </th>
+            <th>
+                Empleado
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CreditosAsignados)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CreditosConsumidos)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdEmpleadoNavigation.Nombre) @Html.DisplayFor(modelItem => item.IdEmpleadoNavigation.Apellido)
+                </td>
+                <td>
+                    <a asp-action="Edit" class="btn btn-warning" asp-route-id="@item.IdCredito">Edit</a> |
+                    <a asp-action="Details" class="btn btn-primary" asp-route-id="@item.IdCredito">Details</a> |
+                    <a asp-action="Delete" class="btn btn-danger" asp-route-id="@item.IdCredito">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

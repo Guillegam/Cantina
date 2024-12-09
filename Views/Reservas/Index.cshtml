@@ -1,0 +1,59 @@
+﻿@model IEnumerable<Cantina.Models.Reserva>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>RESERVAS</h1>
+
+<p>
+    <a asp-action="Create">Crear Reserva</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Fecha)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Hora)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NombreEmpleado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ComidaSeleccionada)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TipoConsumoNavigation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fecha)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Hora)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NombreEmpleado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ComidaSeleccionada)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TipoConsumoNavigation.NombreConsumo)
+            </td>
+            <td>
+                    <a asp-action="Edit" class="btn btn-warning"  asp-route-id="@item.IdReserva">Edit</a> |
+                    <a asp-action="Details" class="btn btn-primary"  asp-route-id="@item.IdReserva">Details</a> |
+                    <a asp-action="Delete" class="btn btn-danger"  asp-route-id="@item.IdReserva">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

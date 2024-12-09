@@ -1,0 +1,127 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Cantina</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Cantina.styles.css" asp-append-version="true" />
+    <style>
+     /* Fondo gris y texto blanco */
+        body {
+            background-color: #808080; /* Fondo gris */
+            color: #ffffff; /* Texto blanco */
+        }
+        
+     /* Cambiar los colores de los enlaces del menú de navegación */
+        .navbar {
+            background-color: #808080; /* Fondo gris del menú */
+        }
+
+            .navbar .nav-link {
+                color: #ffffff !important; /* Enlaces blancos en el menú */
+            }
+
+                .navbar .nav-link:hover {
+                    color: #00ccff !important; /* Azul claro al pasar el cursor por los enlaces */
+                }
+
+        /* Estilo para las tablas */
+        table {
+            width: 100%; /* Ocupa todo el ancho disponible */
+            border-collapse: collapse; /* Colapsa bordes */
+        }
+
+            table th, table td {
+                color: #ffffff !important;
+                border: 2px solid black; /* Bordes negros en todas las celdas */
+                padding: 10px; /* Espaciado interno */
+            }
+
+            /* Estilo solo para los encabezados de la tabla */
+            table th {
+                background-color: #000; /* Fondo negro en el encabezado */
+                color: white; /* Texto blanco */
+                text-align: left; /* Alineación del texto */
+            }
+
+            /* Estilo para las celdas del cuerpo de la tabla */
+            table td {
+                background-color: #333; /* Fondo gris oscuro en las celdas */
+            }
+
+        /* Cambiar el color del pie de página */
+        footer {
+            background-color: #606060; /* Fondo más oscuro */
+            color: #ffffff; /* Texto blanco */
+        }
+
+            footer a {
+                color: #ffffff !important; /* Enlaces blancos en el pie de página */
+            }
+
+                footer a:hover {
+                    color: #00ccff !important; /* Azul claro en hover */
+                }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow mb-3">
+            <div class="container-fluid">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Cantina</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Empleados" asp-action="Index">Empleados</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Menus" asp-action="Index">Menus</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Reservas" asp-action="Index">Reservas</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Turnos" asp-action="Index">Turnos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="TiposConsumos" asp-action="Index">Tipos Consumos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Creditos" asp-action="Index">Creditos</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2024 - Cantina - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
